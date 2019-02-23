@@ -129,4 +129,12 @@
   });
 
   // fast fix for resize window and refresh view, attention: not use in production!
-  window.onresize = function(){ location.reload(); }
+  (function () {
+    var width = window.innerWidth;
+
+    window.addEventListener('resize', function () {
+       if (window.innerWidth !== width) {
+           window.location.reload(true);
+       }
+    });
+  })();
