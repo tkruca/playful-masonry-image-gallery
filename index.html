@@ -1,0 +1,1181 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Playful Masonry Image Gallery - COIDEA</title>
+		<meta name="description" content="A responsive example of masonry image gallery using Masonry JavaScript grid layout library, GSAP's TweenMax and ScrollMagic." />
+		<meta name="keywords" content="tweenmax, gsap, grid, javascript, image, gallery, scrollmagic, masonry" />
+		<meta name="author" content="Mirza Hodzic - COIDEA" />
+		<link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" type="text/css" href="assets/css/demo.css" />
+    
+    <!-- DELETE THIS PART ( Global site tag (gtag.js) - Google Analytics ) - START -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-124048250-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-124048250-1');
+    </script>
+    <!-- DELETE THIS PART ( Global site tag (gtag.js) - Google Analytics ) - END -->
+
+  </head>
+  <body>
+    
+    <!-- coidea:loader START -->
+    <div class="loader">
+      <div class="lds-ripple">
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    <!-- coidea:loader END -->
+
+    <!-- coidea:header START -->
+    <header>
+      <div class="header-inner">
+        <div class="logo">
+          <a href="https://coidea.website/"></a>
+        </div>
+        <nav class="navigation">
+          <li><a href="https://coidea.website/categories/challenges/playful-masonry-image-gallery"><span>Article</span></a></li>
+          <li><a href="https://github.com/COIDEAwebsite/playful-masonry-image-gallery"><span>Github</span></a></li>
+          <li><a href="https://coidea.website/categories/challenges/horizontal-scrolling-with-animated-images"><span>Previous</span></a></li>
+        </nav>
+      </div>
+    </header>
+    <!-- coidea:header END -->
+
+    <!-- coidea:demo:fixed-content START -->
+    <section class="content-holder">
+      <div class="content">
+        <h1>Through<br>a Rainy <span><svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 442.45 511.84"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#f2f2f2;}.cls-3{fill:#006073;}</style></defs><title>protection</title><path class="cls-1" d="M241.63,275.16V464.71a18.55,18.55,0,0,1-37.1,0V453.24a14.29,14.29,0,1,0-28.57,0v11.47a47.12,47.12,0,1,0,94.23,0V275.16Z" transform="translate(-34.69)"/><path class="cls-1" d="M270.19,124.32V96.26a14.28,14.28,0,1,0-28.56,0v28.06Z" transform="translate(-34.69)"/><path class="cls-1" d="M113.58,300.24c29.12,0,42.88,5.51,60.68,19.9,19.18-14.4,48.68-23.61,81.66-23.61s62.47,9.21,81.64,23.61c17.79-14.4,31.54-19.9,60.67-19.9,34.3,0,64,11.42,78.92,28.11C468,200.09,372.57,99.13,255.92,99.13S43.81,200.09,34.69,328.35c14.87-16.68,44.6-28.11,78.89-28.11" transform="translate(-34.69)"/><path class="cls-2" d="M255.92,99.14h0c-36.79,0-71,89.28-81.33,220.78,19.17-14.26,48.54-23.38,81.33-23.38s62.14,9.12,81.31,23.38c-10.38-131.5-44.52-220.78-81.31-220.78" transform="translate(-34.69)"/><path class="cls-3" d="M114.21,135.51a26.45,26.45,0,1,1-52.9,0c0-14.6,26.45-48.84,26.45-48.84s26.45,34.24,26.45,48.84" transform="translate(-34.69)"/><path class="cls-1" d="M87.75,153.54a18,18,0,0,1-18-18,2.82,2.82,0,1,1,5.64,0A12.39,12.39,0,0,0,87.76,147.9a2.82,2.82,0,1,1,0,5.64" transform="translate(-34.69)"/><path class="cls-3" d="M282.37,48.85a26.47,26.47,0,1,1-52.93,0C229.44,34.24,255.92,0,255.92,0s26.45,34.24,26.45,48.85" transform="translate(-34.69)"/><path class="cls-1" d="M255.92,66.88a18.06,18.06,0,0,1-18-18,2.83,2.83,0,0,1,5.66,0,12.39,12.39,0,0,0,12.39,12.4,2.82,2.82,0,1,1,0,5.63" transform="translate(-34.69)"/><path class="cls-3" d="M437.32,93.16a26.47,26.47,0,1,1-52.93,0c0-14.61,26.45-48.85,26.45-48.85s26.48,34.24,26.48,48.85" transform="translate(-34.69)"/><path class="cls-1" d="M410.83,111.2a18,18,0,0,1-18-18,2.82,2.82,0,0,1,5.63,0,12.4,12.4,0,0,0,12.39,12.4,2.82,2.82,0,1,1,0,5.63" transform="translate(-34.69)"/><path class="cls-3" d="M176,237.43a26.45,26.45,0,1,1-52.9,0c0-14.61,26.45-48.85,26.45-48.85S176,222.8,176,237.43" transform="translate(-34.69)"/><path class="cls-1" d="M149.5,255.46a18.06,18.06,0,0,1-18-18,2.83,2.83,0,0,1,5.65,0,12.39,12.39,0,0,0,12.4,12.39,2.82,2.82,0,1,1,0,5.64" transform="translate(-34.69)"/><path class="cls-3" d="M374,202.88a26.47,26.47,0,0,1-52.93,0C321,188.27,347.5,154,347.5,154S374,188.27,374,202.88" transform="translate(-34.69)"/><path class="cls-1" d="M347.5,220.92a18.05,18.05,0,0,1-18-18,2.83,2.83,0,0,1,5.65,0,12.4,12.4,0,0,0,12.4,12.4,2.82,2.82,0,1,1,0,5.63" transform="translate(-34.69)"/></svg></span><br>Window</h1>
+        <p>Access 1,000,000 free, high-resolution photos you can’t find anywhere else</p>
+        <form action="#">
+          <div class="label">
+            <input class="input" autocomplete="off" placeholder="Your e-mail to join" type="email">
+            <input class="submit" type="submit" value="➤">
+          </div>
+        </form>
+      </div>
+    </section>
+    <!-- coidea:demo:fixed-content END -->
+
+    <!-- coidea:demo:grid START -->
+    <section class="grid-holder">
+
+      <div class="grid masonry">
+        
+        <div class="close-detail-view"></div>
+        
+        <!-- coidea:demo:grid:item START -->
+        <div class="masonry__item small">
+          <figure>
+            <figcaption>#1</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-1.jpeg);"></div>
+            <div class="detail">
+              <span class="icon"></span>
+              <span class="circles">
+                <div class="circle circle1"><span>FREE</span></div>
+                <div class="circle circle2"><span>➤</span></div>
+              </span>
+            </div>
+          </figure>
+        </div>
+        <!-- coidea:demo:grid:item END -->
+
+        <div class="masonry__item middle">
+          <figure>
+            <figcaption>#2</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-2.jpeg);"></div>
+            <div class="detail">
+              <span class="icon"></span>
+              <span class="circles">
+                <div class="circle circle1"><span>€9.99</span></div>
+                <div class="circle circle2"><span>➤</span></div>
+              </span>
+            </div>
+          </figure>
+        </div>
+
+        <div class="masonry__item big">
+          <figure>
+            <figcaption>#3</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-3.jpeg);"></div>
+            <div class="detail">
+              <span class="icon"></span>
+              <span class="circles">
+                <div class="circle circle1"><span>FREE</span></div>
+                <div class="circle circle2"><span>➤</span></div>
+              </span>
+            </div>
+          </figure>
+        </div>
+
+        <div class="masonry__item middle">
+          <figure>
+            <figcaption>#4</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url();"></div>
+            <div class="detail">
+              <span class="icon"></span>
+              <span class="circles">
+                <div class="circle circle1"><span>FREE</span></div>
+                <div class="circle circle2"><span>➤</span></div>
+              </span>
+            </div>
+          </figure>
+        </div>
+
+        <div class="masonry__item big">
+          <figure>
+            <figcaption>#5</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-4.jpeg);"></div>
+            <div class="detail">
+              <span class="icon"></span>
+              <span class="circles">
+                <div class="circle circle1"><span>FREE</span></div>
+                <div class="circle circle2"><span>➤</span></div>
+              </span>
+            </div>
+          </figure>
+        </div>
+
+        <div class="masonry__item big">
+          <figure>
+            <figcaption>#6</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-5.jpeg);"></div>
+            <div class="detail">
+              <span class="icon"></span>
+              <span class="circles">
+                <div class="circle circle1"><span>FREE</span></div>
+                <div class="circle circle2"><span>➤</span></div>
+              </span>
+            </div>
+          </figure>
+        </div>
+
+        <div class="masonry__item middle">
+          <figure>
+            <figcaption>#7</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-6.jpeg);"></div>
+            <div class="detail">
+              <span class="icon"></span>
+              <span class="circles">
+                <div class="circle circle1"><span>FREE</span></div>
+                <div class="circle circle2"><span>➤</span></div>
+              </span>
+            </div>
+          </figure>
+        </div>
+
+        <div class="masonry__item big">
+          <figure>
+            <figcaption>#8</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-7.jpeg);"></div>
+            <div class="detail">
+              <span class="icon"></span>
+              <span class="circles">
+                <div class="circle circle1"><span>FREE</span></div>
+                <div class="circle circle2"><span>➤</span></div>
+              </span>
+            </div>
+          </figure>
+        </div>
+
+        <div class="masonry__item small">
+          <figure>
+            <figcaption>#9</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-8.jpeg);"></div>
+            <div class="detail">
+              <span class="icon"></span>
+              <span class="circles">
+                <div class="circle circle1"><span>FREE</span></div>
+                <div class="circle circle2"><span>➤</span></div>
+              </span>
+            </div>
+          </figure>
+        </div>
+
+        <div class="masonry__item big">
+          <figure>
+            <figcaption>#10</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-1.jpeg);"></div>
+            <div class="detail">
+              <span class="icon"></span>
+              <span class="circles">
+              <div class="circle circle1"><span>FREE</span></div>
+              <div class="circle circle2"><span>➤</span></div>
+              </span>
+            </div>
+          </figure>
+        </div>
+
+        <div class="masonry__item middle">
+          <figure>
+            <figcaption>#11</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-2.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+        
+        <div class="masonry__item big">
+          <figure>
+            <figcaption>#12</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-3.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+
+        <div class="masonry__item middle">
+          <figure>
+            <figcaption>#13</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-4.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+
+        <div class="masonry__item small">
+          <figure>
+            <figcaption>#14</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-5.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+
+        <div class="masonry__item big">
+          <figure>
+            <figcaption>#15</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-6.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+
+        <div class="masonry__item small">
+          <figure>
+            <figcaption>#16</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-7.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+
+        <div class="masonry__item small">
+          <figure>
+            <figcaption>#17</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-8.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+
+        <div class="masonry__item middle">
+          <figure>
+            <figcaption>#18</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-1.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+
+        <div class="masonry__item big">
+          <figure>
+            <figcaption>#19</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-2.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+
+        <div class="masonry__item middle">
+          <figure>
+            <figcaption>#20</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-3.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+
+        <div class="masonry__item big">
+          <figure>
+            <figcaption>#21</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-4.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+
+        <div class="masonry__item big">
+          <figure>
+            <figcaption>#22</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-5.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+
+        <div class="masonry__item middle">
+          <figure>
+            <figcaption>#23</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-6.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+
+        <div class="masonry__item big">
+          <figure>
+            <figcaption>#24</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-7.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+
+        <div class="masonry__item small">
+          <figure>
+            <figcaption>#25</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-8.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+
+        <div class="masonry__item big">
+          <figure>
+            <figcaption>#26</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-1.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+
+        <div class="masonry__item middle">
+          <figure>
+            <figcaption>#27</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-2.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+        
+        <div class="masonry__item big">
+          <figure>
+            <figcaption>#28</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-3.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+
+        <div class="masonry__item middle">
+          <figure>
+            <figcaption>#29</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-4.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+
+        <div class="masonry__item small">
+          <figure>
+            <figcaption>#30</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-5.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+
+        <div class="masonry__item big">
+          <figure>
+            <figcaption>#31</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-6.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+
+        <div class="masonry__item small">
+          <figure>
+            <figcaption>#32</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-7.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+        
+        <div class="masonry__item small">
+          <figure>
+            <figcaption>#33</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-8.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+
+        <div class="masonry__item middle">
+          <figure>
+            <figcaption>#34</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-1.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+
+        <div class="masonry__item big">
+          <figure>
+            <figcaption>#35</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-2.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+
+        <div class="masonry__item middle">
+          <figure>
+            <figcaption>#36</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-3.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+
+        <div class="masonry__item big">
+          <figure>
+            <figcaption>#37</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-4.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+
+        <div class="masonry__item big">
+          <figure>
+            <figcaption>#38</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-5.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+
+        <div class="masonry__item middle">
+          <figure>
+            <figcaption>#39</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-6.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+
+        <div class="masonry__item big">
+          <figure>
+            <figcaption>#40</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-7.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+
+        <div class="masonry__item small">
+          <figure>
+            <figcaption>#41</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-8.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+
+        <div class="masonry__item big">
+          <figure>
+            <figcaption>#42</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-1.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+
+        <div class="masonry__item middle">
+          <figure>
+            <figcaption>#43</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-2.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+        
+        <div class="masonry__item big">
+          <figure>
+            <figcaption>#44</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-3.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+
+        <div class="masonry__item middle">
+          <figure>
+            <figcaption>#45</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-4.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+
+        <div class="masonry__item small">
+          <figure>
+            <figcaption>#46</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-5.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+
+        <div class="masonry__item big">
+          <figure>
+            <figcaption>#47</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-6.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+
+        <div class="masonry__item small">
+          <figure>
+            <figcaption>#48</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-7.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+        
+        <div class="masonry__item small">
+          <figure>
+            <figcaption>#49</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-8.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+
+        <div class="masonry__item middle">
+          <figure>
+            <figcaption>#50</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-1.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+
+        <div class="masonry__item big">
+          <figure>
+            <figcaption>#51</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-2.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+
+        <div class="masonry__item middle">
+          <figure>
+            <figcaption>#52</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-3.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+
+        <div class="masonry__item big">
+          <figure>
+            <figcaption>#53</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-4.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+
+        <div class="masonry__item big">
+          <figure>
+            <figcaption>#54</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-5.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+
+        <div class="masonry__item middle">
+          <figure>
+            <figcaption>#55</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-6.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+
+        <div class="masonry__item big">
+          <figure>
+            <figcaption>#56</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-7.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+
+        <div class="masonry__item small">
+          <figure>
+            <figcaption>#57</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-8.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+
+        <div class="masonry__item big">
+          <figure>
+            <figcaption>#58</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-1.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+
+        <div class="masonry__item middle">
+          <figure>
+            <figcaption>#59</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-2.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+        
+        <div class="masonry__item big">
+          <figure>
+            <figcaption>#60</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-3.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+
+        <div class="masonry__item middle">
+          <figure>
+            <figcaption>#61</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-4.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+
+        <div class="masonry__item small">
+          <figure>
+            <figcaption>#62</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-5.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+
+        <div class="masonry__item big">
+          <figure>
+            <figcaption>#63</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-6.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+
+        <div class="masonry__item small">
+          <figure>
+            <figcaption>#64</figcaption>
+            <div class="content">
+              <h2>Rainy Window</h2>
+            </div>
+            <div class="background" style="background-image: url(assets/img/img-7.jpeg);"></div>
+          <div class="detail">
+    <span class="icon"></span>
+    <span class="circles">
+    <div class="circle circle1"><span>FREE</span></div>
+    <div class="circle circle2"><span>➤</span></div>
+    </span>
+    </div>
+    </figure>
+        </div>
+        
+      </div>
+
+    </section>
+    <!-- coidea:demo:grid START -->
+
+
+    <!-- COIDEA:demo END -->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.0/plugins/ScrollToPlugin.min.js"></script>
+    <script src="https://masonry.desandro.com/masonry.pkgd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/ScrollMagic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/plugins/animation.gsap.min.js"></script>
+    <script src="https://unpkg.com/imagesloaded@4.1.4/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/js/demo.js"></script>
+
+  </body>
+</html>
